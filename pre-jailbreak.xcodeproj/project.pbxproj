@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		206CF5D325DF543F00B8A97F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5D225DF543F00B8A97F /* AppDelegate.m */; };
+		206CF5D625DF543F00B8A97F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5D525DF543F00B8A97F /* SceneDelegate.m */; };
+		206CF5D925DF543F00B8A97F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5D825DF543F00B8A97F /* ViewController.m */; };
+		206CF5DC25DF543F00B8A97F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 206CF5DA25DF543F00B8A97F /* Main.storyboard */; };
+		206CF5DE25DF544100B8A97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206CF5DD25DF544100B8A97F /* Assets.xcassets */; };
+		206CF5E125DF544100B8A97F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 206CF5DF25DF544100B8A97F /* LaunchScreen.storyboard */; };
+		206CF5E425DF544200B8A97F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5E325DF544200B8A97F /* main.m */; };
+		206CF5FB25DF58D800B8A97F /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5ED25DF58D700B8A97F /* utils.c */; };
+		206CF5FC25DF58D800B8A97F /* post_exploit.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5EE25DF58D700B8A97F /* post_exploit.c */; };
+		206CF5FD25DF58D800B8A97F /* k_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5EF25DF58D700B8A97F /* k_utils.c */; };
+		206CF5FE25DF58D800B8A97F /* IOSurface_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5F225DF58D700B8A97F /* IOSurface_lib.c */; };
+		206CF5FF25DF58D800B8A97F /* sys_darwin.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5F425DF58D700B8A97F /* sys_darwin.c */; };
+		206CF60025DF58D800B8A97F /* k_offsets.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5F525DF58D700B8A97F /* k_offsets.c */; };
+		206CF60125DF58D800B8A97F /* kapi_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5F825DF58D800B8A97F /* kapi_memory.c */; };
+		206CF60225DF58D800B8A97F /* user_kernel_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF5FA25DF58D800B8A97F /* user_kernel_alloc.c */; };
+		206CF60925DF597800B8A97F /* IOKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 206CF60825DF597800B8A97F /* IOKit.tbd */; };
+		206CF60E25DF5BE400B8A97F /* exploit_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF60D25DF5BE400B8A97F /* exploit_main.c */; };
+		206CF61D25DF5C9C00B8A97F /* descriptors_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61125DF5C9C00B8A97F /* descriptors_utils.c */; };
+		206CF61E25DF5C9C00B8A97F /* cicuta_log.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61225DF5C9C00B8A97F /* cicuta_log.c */; };
+		206CF61F25DF5C9C00B8A97F /* exploit_utilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61425DF5C9C00B8A97F /* exploit_utilities.c */; };
+		206CF62025DF5C9C00B8A97F /* fake_element_spray.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61525DF5C9C00B8A97F /* fake_element_spray.c */; };
+		206CF62125DF5C9C00B8A97F /* voucher_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61725DF5C9C00B8A97F /* voucher_utils.c */; };
+		206CF62225DF5C9C00B8A97F /* cicuta_virosa.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61825DF5C9C00B8A97F /* cicuta_virosa.c */; };
+		206CF62925DF6E8300B8A97F /* jb_resources in Resources */ = {isa = PBXBuildFile; fileRef = 206CF62825DF6E8300B8A97F /* jb_resources */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		206CF5CE25DF543F00B8A97F /* pre-jailbreak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pre-jailbreak.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		206CF5D125DF543F00B8A97F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		206CF5D225DF543F00B8A97F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		206CF5D425DF543F00B8A97F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		206CF5D525DF543F00B8A97F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		206CF5D725DF543F00B8A97F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		206CF5D825DF543F00B8A97F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		206CF5DB25DF543F00B8A97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		206CF5DD25DF544100B8A97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		206CF5E025DF544100B8A97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		206CF5E225DF544200B8A97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		206CF5E325DF544200B8A97F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		206CF5ED25DF58D700B8A97F /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		206CF5EE25DF58D700B8A97F /* post_exploit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = post_exploit.c; sourceTree = "<group>"; };
+		206CF5EF25DF58D700B8A97F /* k_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = k_utils.c; sourceTree = "<group>"; };
+		206CF5F025DF58D700B8A97F /* k_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k_utils.h; sourceTree = "<group>"; };
+		206CF5F125DF58D700B8A97F /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		206CF5F225DF58D700B8A97F /* IOSurface_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IOSurface_lib.c; sourceTree = "<group>"; };
+		206CF5F325DF58D700B8A97F /* kapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kapi.h; sourceTree = "<group>"; };
+		206CF5F425DF58D700B8A97F /* sys_darwin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sys_darwin.c; sourceTree = "<group>"; };
+		206CF5F525DF58D700B8A97F /* k_offsets.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = k_offsets.c; sourceTree = "<group>"; };
+		206CF5F625DF58D700B8A97F /* k_offsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k_offsets.h; sourceTree = "<group>"; };
+		206CF5F725DF58D700B8A97F /* user_kernel_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user_kernel_alloc.h; sourceTree = "<group>"; };
+		206CF5F825DF58D800B8A97F /* kapi_memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kapi_memory.c; sourceTree = "<group>"; };
+		206CF5F925DF58D800B8A97F /* mycommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mycommon.h; sourceTree = "<group>"; };
+		206CF5FA25DF58D800B8A97F /* user_kernel_alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = user_kernel_alloc.c; sourceTree = "<group>"; };
+		206CF60825DF597800B8A97F /* IOKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = IOKit.tbd; path = IOKit/IOKit.tbd; sourceTree = "<group>"; };
+		206CF60D25DF5BE400B8A97F /* exploit_main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = exploit_main.c; sourceTree = "<group>"; };
+		206CF61125DF5C9C00B8A97F /* descriptors_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = descriptors_utils.c; sourceTree = "<group>"; };
+		206CF61225DF5C9C00B8A97F /* cicuta_log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cicuta_log.c; sourceTree = "<group>"; };
+		206CF61325DF5C9C00B8A97F /* cicuta_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cicuta_log.h; sourceTree = "<group>"; };
+		206CF61425DF5C9C00B8A97F /* exploit_utilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exploit_utilities.c; sourceTree = "<group>"; };
+		206CF61525DF5C9C00B8A97F /* fake_element_spray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fake_element_spray.c; sourceTree = "<group>"; };
+		206CF61625DF5C9C00B8A97F /* fake_element_spray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fake_element_spray.h; sourceTree = "<group>"; };
+		206CF61725DF5C9C00B8A97F /* voucher_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = voucher_utils.c; sourceTree = "<group>"; };
+		206CF61825DF5C9C00B8A97F /* cicuta_virosa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cicuta_virosa.c; sourceTree = "<group>"; };
+		206CF61925DF5C9C00B8A97F /* voucher_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voucher_utils.h; sourceTree = "<group>"; };
+		206CF61A25DF5C9C00B8A97F /* cicuta_virosa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cicuta_virosa.h; sourceTree = "<group>"; };
+		206CF61B25DF5C9C00B8A97F /* descriptors_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = descriptors_utils.h; sourceTree = "<group>"; };
+		206CF61C25DF5C9C00B8A97F /* exploit_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exploit_utilities.h; sourceTree = "<group>"; };
+		206CF62825DF6E8300B8A97F /* jb_resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jb_resources; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		206CF5CB25DF543F00B8A97F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				206CF60925DF597800B8A97F /* IOKit.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		206CF5C525DF543F00B8A97F = {
+			isa = PBXGroup;
+			children = (
+				206CF5EC25DF58B200B8A97F /* mylib */,
+				206CF60B25DF5B0200B8A97F /* exploit-main */,
+				206CF5D025DF543F00B8A97F /* pre-jailbreak */,
+				206CF60425DF590700B8A97F /* IOKit */,
+				206CF5CF25DF543F00B8A97F /* Products */,
+				206CF60725DF597800B8A97F /* Frameworks */,
+				206CF62725DF6E5100B8A97F /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		206CF5CF25DF543F00B8A97F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				206CF5CE25DF543F00B8A97F /* pre-jailbreak.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		206CF5D025DF543F00B8A97F /* pre-jailbreak */ = {
+			isa = PBXGroup;
+			children = (
+				206CF5D125DF543F00B8A97F /* AppDelegate.h */,
+				206CF5D225DF543F00B8A97F /* AppDelegate.m */,
+				206CF5D425DF543F00B8A97F /* SceneDelegate.h */,
+				206CF5D525DF543F00B8A97F /* SceneDelegate.m */,
+				206CF5D725DF543F00B8A97F /* ViewController.h */,
+				206CF5D825DF543F00B8A97F /* ViewController.m */,
+				206CF5DA25DF543F00B8A97F /* Main.storyboard */,
+				206CF5DD25DF544100B8A97F /* Assets.xcassets */,
+				206CF5DF25DF544100B8A97F /* LaunchScreen.storyboard */,
+				206CF5E225DF544200B8A97F /* Info.plist */,
+				206CF5E325DF544200B8A97F /* main.m */,
+			);
+			path = "pre-jailbreak";
+			sourceTree = "<group>";
+		};
+		206CF5EC25DF58B200B8A97F /* mylib */ = {
+			isa = PBXGroup;
+			children = (
+				206CF5F225DF58D700B8A97F /* IOSurface_lib.c */,
+				206CF5F525DF58D700B8A97F /* k_offsets.c */,
+				206CF5F625DF58D700B8A97F /* k_offsets.h */,
+				206CF5EF25DF58D700B8A97F /* k_utils.c */,
+				206CF5F025DF58D700B8A97F /* k_utils.h */,
+				206CF5F825DF58D800B8A97F /* kapi_memory.c */,
+				206CF5F325DF58D700B8A97F /* kapi.h */,
+				206CF5F925DF58D800B8A97F /* mycommon.h */,
+				206CF5F425DF58D700B8A97F /* sys_darwin.c */,
+				206CF5FA25DF58D800B8A97F /* user_kernel_alloc.c */,
+				206CF5F725DF58D700B8A97F /* user_kernel_alloc.h */,
+				206CF5ED25DF58D700B8A97F /* utils.c */,
+				206CF5F125DF58D700B8A97F /* utils.h */,
+			);
+			path = mylib;
+			sourceTree = "<group>";
+		};
+		206CF60425DF590700B8A97F /* IOKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IOKit;
+			sourceTree = "<group>";
+		};
+		206CF60725DF597800B8A97F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				206CF60825DF597800B8A97F /* IOKit.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		206CF60B25DF5B0200B8A97F /* exploit-main */ = {
+			isa = PBXGroup;
+			children = (
+				206CF60C25DF5B8E00B8A97F /* cicuta_virosa */,
+				206CF60D25DF5BE400B8A97F /* exploit_main.c */,
+				206CF5EE25DF58D700B8A97F /* post_exploit.c */,
+			);
+			path = "exploit-main";
+			sourceTree = "<group>";
+		};
+		206CF60C25DF5B8E00B8A97F /* cicuta_virosa */ = {
+			isa = PBXGroup;
+			children = (
+				206CF61225DF5C9C00B8A97F /* cicuta_log.c */,
+				206CF61325DF5C9C00B8A97F /* cicuta_log.h */,
+				206CF61825DF5C9C00B8A97F /* cicuta_virosa.c */,
+				206CF61A25DF5C9C00B8A97F /* cicuta_virosa.h */,
+				206CF61125DF5C9C00B8A97F /* descriptors_utils.c */,
+				206CF61B25DF5C9C00B8A97F /* descriptors_utils.h */,
+				206CF61425DF5C9C00B8A97F /* exploit_utilities.c */,
+				206CF61C25DF5C9C00B8A97F /* exploit_utilities.h */,
+				206CF61525DF5C9C00B8A97F /* fake_element_spray.c */,
+				206CF61625DF5C9C00B8A97F /* fake_element_spray.h */,
+				206CF61725DF5C9C00B8A97F /* voucher_utils.c */,
+				206CF61925DF5C9C00B8A97F /* voucher_utils.h */,
+			);
+			path = cicuta_virosa;
+			sourceTree = "<group>";
+		};
+		206CF62725DF6E5100B8A97F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				206CF62825DF6E8300B8A97F /* jb_resources */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		206CF5CD25DF543F00B8A97F /* pre-jailbreak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 206CF5E725DF544200B8A97F /* Build configuration list for PBXNativeTarget "pre-jailbreak" */;
+			buildPhases = (
+				206CF5CA25DF543F00B8A97F /* Sources */,
+				206CF5CB25DF543F00B8A97F /* Frameworks */,
+				206CF5CC25DF543F00B8A97F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "pre-jailbreak";
+			productName = "pre-jailbreak";
+			productReference = 206CF5CE25DF543F00B8A97F /* pre-jailbreak.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		206CF5C625DF543F00B8A97F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					206CF5CD25DF543F00B8A97F = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 206CF5C925DF543F00B8A97F /* Build configuration list for PBXProject "pre-jailbreak" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 206CF5C525DF543F00B8A97F;
+			productRefGroup = 206CF5CF25DF543F00B8A97F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				206CF5CD25DF543F00B8A97F /* pre-jailbreak */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		206CF5CC25DF543F00B8A97F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				206CF5E125DF544100B8A97F /* LaunchScreen.storyboard in Resources */,
+				206CF5DE25DF544100B8A97F /* Assets.xcassets in Resources */,
+				206CF62925DF6E8300B8A97F /* jb_resources in Resources */,
+				206CF5DC25DF543F00B8A97F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		206CF5CA25DF543F00B8A97F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				206CF62125DF5C9C00B8A97F /* voucher_utils.c in Sources */,
+				206CF5FB25DF58D800B8A97F /* utils.c in Sources */,
+				206CF60225DF58D800B8A97F /* user_kernel_alloc.c in Sources */,
+				206CF61D25DF5C9C00B8A97F /* descriptors_utils.c in Sources */,
+				206CF60125DF58D800B8A97F /* kapi_memory.c in Sources */,
+				206CF61F25DF5C9C00B8A97F /* exploit_utilities.c in Sources */,
+				206CF5D925DF543F00B8A97F /* ViewController.m in Sources */,
+				206CF61E25DF5C9C00B8A97F /* cicuta_log.c in Sources */,
+				206CF5FD25DF58D800B8A97F /* k_utils.c in Sources */,
+				206CF5D325DF543F00B8A97F /* AppDelegate.m in Sources */,
+				206CF5FF25DF58D800B8A97F /* sys_darwin.c in Sources */,
+				206CF5FC25DF58D800B8A97F /* post_exploit.c in Sources */,
+				206CF62225DF5C9C00B8A97F /* cicuta_virosa.c in Sources */,
+				206CF60025DF58D800B8A97F /* k_offsets.c in Sources */,
+				206CF5E425DF544200B8A97F /* main.m in Sources */,
+				206CF5D625DF543F00B8A97F /* SceneDelegate.m in Sources */,
+				206CF62025DF5C9C00B8A97F /* fake_element_spray.c in Sources */,
+				206CF5FE25DF58D800B8A97F /* IOSurface_lib.c in Sources */,
+				206CF60E25DF5BE400B8A97F /* exploit_main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		206CF5DA25DF543F00B8A97F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				206CF5DB25DF543F00B8A97F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		206CF5DF25DF544100B8A97F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				206CF5E025DF544100B8A97F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		206CF5E525DF544200B8A97F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		206CF5E625DF544200B8A97F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		206CF5E825DF544200B8A97F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64e,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BPZ2V6654Z;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/";
+				INFOPLIST_FILE = "pre-jailbreak/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IOKit",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pattern-f.pre-jailbreak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		206CF5E925DF544200B8A97F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64e,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BPZ2V6654Z;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/";
+				INFOPLIST_FILE = "pre-jailbreak/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IOKit",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pattern-f.pre-jailbreak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		206CF5C925DF543F00B8A97F /* Build configuration list for PBXProject "pre-jailbreak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				206CF5E525DF544200B8A97F /* Debug */,
+				206CF5E625DF544200B8A97F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		206CF5E725DF544200B8A97F /* Build configuration list for PBXNativeTarget "pre-jailbreak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				206CF5E825DF544200B8A97F /* Debug */,
+				206CF5E925DF544200B8A97F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 206CF5C625DF543F00B8A97F /* Project object */;
+}
