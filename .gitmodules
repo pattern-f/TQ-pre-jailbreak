@@ -1,0 +1,3 @@
+[submodule ".zecops"]
+	path = .zecops
+	url = https://github.com/ZecOps/FreeTheSandbox_LPE_POC_13.7.git
