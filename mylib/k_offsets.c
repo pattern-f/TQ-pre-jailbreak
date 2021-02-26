@@ -87,6 +87,16 @@ static void offsets_iPhone11_18A373()
     kc_IOSurfaceClient_vt_0 = 0xFFFFFFF00867A778;
 }
 
+static void offsets_iPhone11_18B92()
+{
+    offsets_base_iOS_14_x();
+
+    kc_kernel_map = 0xfffffff0076fc910;
+    kc_kernel_task = 0xfffffff0076f8c80;
+    kc_IOSurfaceClient_vt = 0xfffffff00785d7f8;
+    kc_IOSurfaceClient_vt_0 = 0xfffffff0086dacdc;
+}
+
 static void offsets_iPhone12pro_18C66()
 {
     offsets_base_iOS_14_x();
@@ -109,6 +119,7 @@ static struct device_def devices[] = {
     { "iPhone 11", "N104AP", "18A373", offsets_iPhone11_18A373 },
     { "iPhone 12", "D53gAP", "18A8395", offsets_iPhone12_18A8395 },
     { "iPhone 12 pro", "D53pAP", "18C66", offsets_iPhone12pro_18C66 },
+    { "iPhone 11", "N104AP", "18B92", offsets_iPhone11_18B92 }
 };
 
 void kernel_offsets_init(void)
