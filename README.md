@@ -19,7 +19,7 @@ Implemented an arbitrary r/w primitive based on [cicuta\_virosa](https://github.
 
 Tested on iPhone 12 pro (**iOS 14.3**).
 
-Tested on iPhone 11 (**iOS 14.0**).
+Tested on iPhone 11 (**iOS 14.0 and iOS 14.2**).
 
 Tested on iPhone 6s (**iOS 14.0**). Maybe helpful to A11 devices. I note that checkra1n said "Limited support for A11 devices on iOS 14.x".
 
