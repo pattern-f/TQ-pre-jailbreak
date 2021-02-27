@@ -39,6 +39,7 @@ struct exploit_common_s {
     kptr_t data_slide;
     kptr_t zone_array;
     uint32_t num_zones;
+    mach_port_t fakeport;
 };
 
 extern struct exploit_common_s g_exp;
