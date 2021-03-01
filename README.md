@@ -8,14 +8,15 @@ Implemented an arbitrary r/w primitive based on [cicuta\_virosa](https://github.
 
 # Warranty
 
-**Use it on your own risk**. I build it for security researchers only. **MEAN NOTHING** to normal user.
+**Use it on your own risk**. I build it for security researchers only. **MEAN NOTHING** to normal users.
 
 **DO NOT RUN IT** on you main device. I can not promise **WHAT WILL HAPPEN!**
 
 # Current state
 
+- [x] make the exploit faster (iPhone 12: 65s -> 10s, iPhone 6s: 188s -> 68s)
 - [x] stable kernel r/w primitives
-- [x] ~~amfid bypass~~ Implement it by yourself. Bad guys could use this to distribute malicious code directly.
+- [x] ~~amfid bypass~~ Implement it by yourself. Bad guys would use this to distribute malicious code directly.
 
 Tested on iPhone 12 pro (**iOS 14.3**).
 
