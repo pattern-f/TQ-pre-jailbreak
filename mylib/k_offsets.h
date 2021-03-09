@@ -35,10 +35,13 @@ qexternal size_t OFFSET(ipc_space, is_table_size);
 qexternal size_t OFFSET(ipc_space, is_table);
 
 // Parameters for struct task.
+qexternal size_t OFFSET(task, map);
 qexternal size_t OFFSET(task, itk_space);
 qexternal size_t OFFSET(task, bsd_info);
 qexternal size_t OFFSET(task, t_flags);
 
+qexternal size_t OFFSET(proc, le_next);
+qexternal size_t OFFSET(proc, le_prev);
 qexternal size_t OFFSET(proc, task);
 qexternal size_t OFFSET(proc, p_ucred);
 qexternal size_t OFFSET(proc, p_pid);

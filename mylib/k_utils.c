@@ -21,12 +21,12 @@
 
 #define _assert(x)
 
-static void kproc_foreach(bool (^match)(kptr_t, pid_t))
+static void kproc_foreach(kptr_t proc, bool (^match)(kptr_t, pid_t))
 {
-    kptr_t proc = g_exp.kernel_proc;
-    _assert(KERN_POINTER_VALID(proc));
+    pid_t pid;
+    kptr_t next;
     while (KERN_POINTER_VALID(proc)) {
-        pid_t const pid = kapi_read32(proc + OFFSET(proc, p_pid));
+        pid = kapi_read32(proc + OFFSET(proc, p_pid));
         if (g_exp.debug) {
             util_info("pid %u", pid);
             util_msleep(100);
@@ -34,7 +34,50 @@ static void kproc_foreach(bool (^match)(kptr_t, pid_t))
         if (match(proc, pid)) {
             break;
         }
-        proc = kapi_read_kptr(proc + 0x0 + sizeof(kptr_t));
+        next = kapi_read_kptr(proc + OFFSET(proc, le_next));
+        if (next == KPTR_NULL) {
+            break;
+        }
+        proc = next;
+    }
+}
+
+kptr_t kproc_find_pid0(kptr_t proc)
+{
+    __block kptr_t proc0 = KPTR_NULL;
+    bool (^const handler)(kptr_t, pid_t) = ^ bool (kptr_t found_proc, pid_t found_pid) {
+        if (found_pid == 0) {
+            proc0 = found_proc;
+            return true;
+        }
+        return false;
+    };
+    kproc_foreach(proc, handler);
+    if(proc0 == KPTR_NULL) {
+        util_error("can not find proc0");
+    }
+    return proc0;
+}
+
+
+static void kproc_foreach_reverse(kptr_t proc, bool (^match)(kptr_t, pid_t))
+{
+    pid_t pid;
+    kptr_t prev;
+    while (KERN_POINTER_VALID(proc)) {
+        pid = kapi_read32(proc + OFFSET(proc, p_pid));
+        if (g_exp.debug) {
+            util_info("pid %u", pid);
+            util_msleep(100);
+        }
+        if (match(proc, pid)) {
+            break;
+        }
+        prev = kapi_read_kptr(proc + OFFSET(proc, le_prev));
+        if (prev == KPTR_NULL) {
+            break;
+        }
+        proc = prev - OFFSET(proc, le_next);
     }
 }
 
@@ -48,7 +91,7 @@ kptr_t kproc_find_by_pid(pid_t pid)
         }
         return false;
     };
-    kproc_foreach(handler);
+    kproc_foreach_reverse(g_exp.kernel_proc, handler);
     if(proc == KPTR_NULL) {
         util_error("can not find kproc for pid %u", pid);
     }
@@ -61,11 +104,26 @@ kptr_t ipc_entry_lookup(mach_port_t port_name)
     uint32_t table_size = kapi_read32(itk_space + OFFSET(ipc_space, is_table_size));
     uint32_t port_index = MACH_PORT_INDEX(port_name);
     if (port_index >= table_size) {
+        util_warning("invalid port name %#x", port_name);
         return 0;
     }
     kptr_t is_table = kapi_read_kptr(itk_space + OFFSET(ipc_space, is_table));
     kptr_t entry = is_table + port_index * SIZE(ipc_entry);
     return entry;
+}
+
+kptr_t port_name_to_ipc_port(mach_port_t port_name)
+{
+    kptr_t entry = ipc_entry_lookup(port_name);
+    kptr_t ipc_port = kapi_read_kptr(entry + OFFSET(ipc_entry, ie_object));
+    return ipc_port;
+}
+
+kptr_t port_name_to_kobject(mach_port_t port_name)
+{
+    kptr_t ipc_port = port_name_to_ipc_port(port_name);
+    kptr_t kobject = kapi_read_kptr(ipc_port + OFFSET(ipc_port, ip_kobject));
+    return kobject;
 }
 
 void debug_dump_ipc_port(mach_port_t port_name, kptr_t *kobj)

@@ -24,7 +24,9 @@ Tested on iPhone 11 (**iOS 14.0**).
 
 Tested on iPhone 6s (**iOS 14.0**). Maybe helpful to A11 devices. I note that checkra1n said "Limited support for A11 devices on iOS 14.x".
 
-For other devices/iOSs, add kernel offsets yourself in k\_offsets.c
+~~For other devices/iOSs, add kernel offsets yourself in k\_offsets.c~~
+
+Eliminate hardcoded variable offsets from kernelcache. No need to care about the offset things. Theoretically, works on every iOS \[14.0 ~ 14.3\] device.
 
 # Credits
 

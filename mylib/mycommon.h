@@ -35,6 +35,7 @@ struct exploit_common_s {
     kptr_t self_proc;
     kptr_t self_task;
     kptr_t self_ipc_space;
+    kptr_t kernel_slide;
     kptr_t text_slide;
     kptr_t data_slide;
     kptr_t zone_array;
