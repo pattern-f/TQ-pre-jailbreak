@@ -34,6 +34,9 @@ qexternal size_t OFFSET(ipc_port, ip_kobject);
 qexternal size_t OFFSET(ipc_space, is_table_size);
 qexternal size_t OFFSET(ipc_space, is_table);
 
+// Parameters for struct thread.
+qexternal size_t OFFSET(thread, jop_pid); // struct thread { struct machine_thread { jop_pid } }
+
 // Parameters for struct task.
 qexternal size_t OFFSET(task, map);
 qexternal size_t OFFSET(task, itk_space);
@@ -66,6 +69,8 @@ qexternal size_t OFFSET(OSString, string);
 
 // Parameters for IOSurfaceRootUserClient.
 qexternal size_t OFFSET(IOSurfaceRootUserClient, surfaceClients);
+qexternal size_t OFFSET(IOSurfaceClient, surface);
+qexternal size_t OFFSET(IOSurface, values);
 
 qexternal kptr_t kc_kernel_base;
 qexternal kptr_t kc_kernel_map;

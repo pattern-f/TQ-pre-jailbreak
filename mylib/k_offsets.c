@@ -59,6 +59,8 @@ static void offsets_base_iOS_14_x()
     OFFSET(OSString, string) = 0x10;
 
     OFFSET(IOSurfaceRootUserClient, surfaceClients) = 0x118;
+    OFFSET(IOSurfaceClient, surface) = 0x40;
+    OFFSET(IOSurface, values) = 0xe8;
 }
 
 static void offsets_iPhone6s_18A373()
@@ -69,11 +71,15 @@ static void offsets_iPhone6s_18A373()
 static void offsets_iPhone11_18A373()
 {
     offsets_base_iOS_14_x();
+
+    OFFSET(thread, jop_pid) = 0x510;
 }
 
 static void offsets_iPhone12pro_18C66()
 {
     offsets_base_iOS_14_x();
+
+    OFFSET(thread, jop_pid) = 0x518;
 }
 
 struct device_def {

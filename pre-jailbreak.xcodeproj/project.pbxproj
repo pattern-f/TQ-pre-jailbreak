@@ -31,6 +31,7 @@
 		206CF62125DF5C9C00B8A97F /* voucher_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61725DF5C9C00B8A97F /* voucher_utils.c */; };
 		206CF62225DF5C9C00B8A97F /* cicuta_virosa.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF61825DF5C9C00B8A97F /* cicuta_virosa.c */; };
 		206CF62925DF6E8300B8A97F /* jb_resources in Resources */ = {isa = PBXBuildFile; fileRef = 206CF62825DF6E8300B8A97F /* jb_resources */; };
+		206CF62F25E2ABC000B8A97F /* amfid_bypass.c in Sources */ = {isa = PBXBuildFile; fileRef = 206CF62E25E2ABBF00B8A97F /* amfid_bypass.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		206CF61B25DF5C9C00B8A97F /* descriptors_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = descriptors_utils.h; sourceTree = "<group>"; };
 		206CF61C25DF5C9C00B8A97F /* exploit_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exploit_utilities.h; sourceTree = "<group>"; };
 		206CF62825DF6E8300B8A97F /* jb_resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jb_resources; sourceTree = "<group>"; };
+		206CF62E25E2ABBF00B8A97F /* amfid_bypass.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = amfid_bypass.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				206CF60C25DF5B8E00B8A97F /* cicuta_virosa */,
 				206CF60D25DF5BE400B8A97F /* exploit_main.c */,
 				206CF5EE25DF58D700B8A97F /* post_exploit.c */,
+				206CF62E25E2ABBF00B8A97F /* amfid_bypass.c */,
 			);
 			path = "exploit-main";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				206CF5FB25DF58D800B8A97F /* utils.c in Sources */,
 				206CF60225DF58D800B8A97F /* user_kernel_alloc.c in Sources */,
 				206CF61D25DF5C9C00B8A97F /* descriptors_utils.c in Sources */,
+				206CF62F25E2ABC000B8A97F /* amfid_bypass.c in Sources */,
 				206CF60125DF58D800B8A97F /* kapi_memory.c in Sources */,
 				206CF61F25DF5C9C00B8A97F /* exploit_utilities.c in Sources */,
 				206CF5D925DF543F00B8A97F /* ViewController.m in Sources */,
